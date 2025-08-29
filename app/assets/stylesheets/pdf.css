@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+    font-family: 'Roboto Slab', serif;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 21px;
+}
+
+.pdf-page {
+    position: relative;
+}
+
+.top-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #364C7A;
+    z-index: -1;
+}
+
+.pdf-container {
+    font-size: 16px;
+    display: -webkit-box; /* required for wkhtmltopdf */
+    display: flex;
+    text-wrap: wrap;
+  /* -webkit-box-pack: center; */
+  /* justify-content: center; */
+}
+
+.pdf-container > .left-side {
+    margin-left: 60px;
+    width: 45%;
+}
+
+.company-name-logo {
+    display: -webkit-box;      /* old flexbox syntax */
+    display: -webkit-flex;     /* prefixed flex */
+    display: flex;             /* modern flex */
+
+  -webkit-box-align: center; /* old syntax for align-items */
+  -webkit-align-items: center; /* prefixed align-items */
+    align-items: center;       /* modern align-items */
+    padding: 20px 0;
+    /* align-items: center; */
+}
+
+.company-name-logo .logo {
+    margin-right: 20px;
+}
+
+.company-name-logo .name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #364C7A;
+    margin-left: 16px;
+}
+
+.pdf-container > .right-side {
+    width: 45%;
+}
+
+.image-container {
+    width: 488px;
+}
+
+.image-container .image {
+    width: 110%;
+    /* height: 400px; */
+}
+
+.left-side {
+    margin-top: 30px;
+}
+
+.left-side-header {
+    position: absolute;
+    width: 590px;
+    margin-left: -60px;
+    background-color: #364C7A;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.left-side-header h1 {
+    padding: 24px 120px 24px 60px;
+    color: white;
+    font-weight: bold;
+}
+
+.intro {
+    margin-top: 200px;
+    width: 405px;
+}
+
+.section {
+    width: 405px;
+    margin-top: 48px;
+}
+
+.section h2 {
+    color: #364C7A;
+    margin: 16px 0;
+}
+
+.section li {
+    padding: 4px;
+}
+
+.naics {
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.naics:not(:last-child)::after {
+    content: "•";
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #333;
+}

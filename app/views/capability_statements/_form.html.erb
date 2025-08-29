@@ -1,0 +1,75 @@
+<%= simple_form_for @capability_statement, html: { multipart: true } do |form| %>
+    <div class="form-sections">
+        <div class="form-header">
+            <%= image_tag "icon-bldg.svg", alt: "document icon", class:'form-section-icon' %>
+            <h2>Company Info</h2>
+        </div>
+        <%= form.input :company_name, as: :string %>
+        <div class="form-flex">
+            <%= form.input :cage_code %>
+            <%= form.input :uei %>
+        </div>
+        <%= form.input :company_logo, as: :file, label: "Upload Company Logo" %>
+        <%= form.input :naics_codes, 
+        as: :text,
+        label: "NAICS Codes (comma separated)", 
+        input_html: { value: @capability_statement.naics_codes&.join(", ") } %>
+        <%= form.input :certifications,
+        as: :select,
+         collection: [
+            "8(a)",
+            "SDVOSB",
+            "VOSB",
+            "WOSB",
+            "EDWOSB",
+            "HUBZone",
+            "DBE",
+            "MBE",
+            "SDB"
+        ],
+        label: "Certifications",
+        input_html: { multiple: true, class: "custom-select" } %>
+        <%= form.input :accepts_credit_cards, as: :boolean, label: "Accepts Credit Cards?", class:'checkbox' %>
+    </div>
+
+    <div class="form-sections">
+        <div class="form-header">
+            <%= image_tag "icon-bldg.svg", alt: "document icon", class:'form-section-icon' %>
+            <h2>Capabilitites</h2>
+        </div>
+        <%= form.input :introduction, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
+        <%= form.input :core_competencies, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
+        <%= form.input :differentiators, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %> 
+        <%= form.input :past_performance, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
+    </div>
+    <div class="form-sections">
+        <%= form.simple_fields_for :company_contact do |contact| %>
+            <%= contact.input :name %>
+            <div class="form-flex">
+                <%= contact.input :email %>
+                <%= contact.input :phone %>
+            </div>
+            <%= contact.input :website %>
+            <%= contact.input :street %>
+            <div class="form-flex">
+                <div class="form-address">
+                    <%= contact.input :city %>
+                </div>
+                <div class="form-address-2">
+                    <%= contact.input :state, 
+                        as: :select, 
+                        collection: [
+                            "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA",
+                            "HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
+                            "MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
+                            "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
+                            "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
+                        ], 
+                        include_blank: "Select a state", class: 'state' %>
+                    <%= contact.input :postal_code %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <%= form.submit %>
+<% end %>

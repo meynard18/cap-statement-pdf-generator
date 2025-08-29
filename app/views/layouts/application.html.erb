@@ -7,17 +7,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= yield :head %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap", rel: "stylesheet" %>
+  
+    <%#= wicked_pdf_stylesheet_link_tag "application" %>
 
+    <%= javascript_importmap_tags %>
+    <%= yield :head %>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <a href="">company name</a>
+      <ul class="nav-ul">
+        <li class="nav-li">support</li>
+        <li class="nav-li">blogs</li>
+      </ul>
+    </nav>
+      <%= yield %>
   </body>
 </html>

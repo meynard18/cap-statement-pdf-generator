@@ -1,0 +1,31 @@
+<div class="">
+    <header>
+        <div class="header-left">
+            <h1 class="main-header">Create Your Capability Statement in Minutes</h1>
+            <h2 class="sub-header">AI-powered to deliver a professional, agency-ready PDF</h2>
+            <div class="action">
+                <%= link_to "Generate Capability Statement with AI", new_capability_statement_path, class: 'btn btn-primary' %>
+                <span class="cta-support-copy">No Design skills needed, Generate in minutes</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="decor-round"></div>
+            <%= image_tag "landing-page-image2.svg", alt: "Landing Page", class:'hero-image' %>
+        </div>
+    </header>
+    <div class="how-it-works">
+        <h2 class="section-header">How It Works</h2>
+        <div class="decor-round-section"></div>
+        <div class="card-section">
+            <% how_it_works_steps.each do |card| %>
+                <div class="card">
+                    <%= image_tag "#{card[:icon]}", alt: "document icon", class:'card-icon' %>
+                    <div class="card-content">
+                        <h3 class="card-title"><%= card[:title] %></h3>
+                        <p class="card-content"><%= card[:content] %> </p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

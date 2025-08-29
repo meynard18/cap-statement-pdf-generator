@@ -1,0 +1,59 @@
+<% ai = JSON.parse(@capability_statement.ai_output)%>
+<div class="pdf-page">
+    <div class="top-border"></div>
+    <div class="pdf-container">
+    <div class="left-side">
+        <div class="company-name-logo">
+        <p class="logo">logo</p>
+        <p><%= @capability_statement.company_name %></p>
+        </div>
+        <div class="left-side-header">
+        <h1>Capability Statement</h1>
+        </div>
+        <div class="intro">
+        <p><%= ai["introduction"] %></p>
+        </div>
+        <div class="section">
+        <h2>Core Competencies</h2>
+        <ul>
+            <% ai["core_competencies"].each do |competency| %>
+            <li><p><%= competency %></p></li>
+            <% end %>
+        </ul>
+        </div>
+        <div class="section">
+        <h2>Differentiators</h2>
+        <ul>
+            <% ai["differentiators"].each do |performance| %>
+            <li><p><%= performance %></p></li>
+            <% end %>
+        </ul>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="image-container">
+        <%= wicked_pdf_image_tag "pdf1.jpg", alt: "Logo", class: "image" %>
+        </div>
+        <div class="section">
+        <h2>Past Performance</h2>
+        <ul>
+            <% ai["past_performance"].each do |performance| %>
+            <li><p><%= performance %></p></li>
+            <% end %>
+        </ul>
+        </div>
+        <div class="section">
+        <h2>Company Snapshot</h2>
+        <% Array(ai["company_snapshot"]).each do |info| %>
+            <p><%= info[0].upcase %>: <%= info[1] %></p>
+        <% end %>
+        </div>
+        <div class="section">
+        <h2>NAICS Code</h2>
+        </div>
+        <div class="section">
+        <h2>Contact</h2>
+        </div>
+    </div>
+    </div>
+</div>

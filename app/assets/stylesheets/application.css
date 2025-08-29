@@ -10,6 +10,459 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 16px;
+}
+
+.btn {
+  border-radius: 8px;
+  border: none;
+  padding: 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(90deg, #3A86FF 0%, #6C63FF 98.56%);
+}
+
+h1 {
+  color: #575757;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px;
+}
+
+.nav-ul {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-li {
+  list-style: none;
+
+
+}
+
+header {
+  background: linear-gradient(346deg, #F9FAFB -2.8%, #F3F4F6 66.2%, #FFF5F0 135.2%);
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden; /* Ensures image gets cut off */
+}
+
+.header-left {
+  flex: 50%;
+  margin-left: 60px;
+  margin-top: 100px;
+}
+
+.header-right {
+  flex: 50%;
+}
+
+.hero-image {
+  position: relative;
+  width: 140%;
+  margin-top: -60px;
+  z-index: 10;
+
+}
+
+.main-header {
+  font-weight: 600;
+}
+
+.sub-header {
+  font-size: 30px;
+  color: #575757;
+  font-weight: 400;
+}
+
+.decor-round {
+  position: absolute;
+  top: 150px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border-radius: 900px;
+  background: radial-gradient(50% 50% at 50% 50%, #E8E9FF 99.99%, rgba(115, 115, 115, 0.00) 100%);
+  filter: blur(100px);
+  z-index: 1;
+}
+
+.action {
+  margin-top: 64px;
+}
+
+.cta-support-copy {
+  display: block;
+  margin-top: 32px;
+  font-size: 12px;
+  color: #575757;
+}
+.cap-statement-container {
+  background: linear-gradient(346deg, #F9FAFB -2.8%, #F3F4F6 66.2%, #FFF5F0 135.2%);
+}
+
+.cap-statement-sub-container {
+  padding-top: 80px;
+  padding-left: 60px;
+}
+
+.cap-statement-header {
+  font-size: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #575757;
+  position: relative;
+  display: inline-block; 
+  padding-bottom: 10px;
+}
+
+.cap-statement-header::before {
+  content: "";
+  width: 100px; 
+  height: 2px; 
+  background: #D6C4A6;
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+}
+
+.cap-statement-sub-header {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: #575757;
+  margin: 24px 0;
+}
+
+.form-container {
+  margin-top: 60px;
+}
+
+.form-sections {
+  width: 800px;
+  border-radius: 24px;
+  border: 1px solid #D7D7D7;
+  background: #FFF;
+  box-shadow: 2px 6px 18px 0 rgba(0, 0, 0, 0.10);
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-section-icon {
+  width: 36px;
+}
+
+.form-sections input {
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  background: #FFF;
+  height: 32px;
+  padding-left: 12px;
+}
+
+.form-sections textarea {
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  background: #FFF;
+  padding-left: 12px;
+}
+
+.form-sections select {
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  background: #FFF;
+  padding-left: 12px;
+}
+
+.form-sections .form-address-2 select {
+  height: 32px;
+}
+
+.form-sections .checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+
+.form-sections label {
+  color: #575757;
+  display: block;
+  padding: 4px 0;
+}
+
+.form-flex {
+  display: flex;
+  gap: 36px;
+  width: 100%;
+}
+
+.form-address {
+  flex: 1;
+}
+
+.form-address-2 {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+}
+
+.form-flex .input {
+  flex: 1;
+}
+
+.form-flex input {
+  width: 100%;
+}
+
+.form-sections .input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.form-sections h2 {
+  color: #575757;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+input[type="file"]::file-selector-button {
+  background: #F2F2F2;
+  color: #575757;
+  border: none;
+  padding: 8px 16px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 12px;
+  margin-left: -12px;
+}
+
+.how-it-works {
+  margin-top: 72px;
+  position: relative;
+}
+
+.decor-round-section {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(232, 233, 255, 0.50) 99.99%, rgba(115, 115, 115, 0.00) 100%);
+  filter: blur(80px);
+  z-index: -1;
+}
+
+.section-header {
+  text-align: center;
+  color: #575757;
+  font-weight: 600;
+}
+
+.card-section {
+  margin: 60px 0;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+
+.card {
+  color: #575757;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10px;
+  width: 300px;
+  border-radius: 24px;
+  border: 1px solid #E1E1E1;
+  background: #FFF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-icon {
+  display: block;
+  width: 70px;
+}
+
+.card-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  margin: 16px 0;
+}
+
+.card-content {
+  font-size: 16px;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.summary-container {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+}
+
+.cap-statement-content {
+  flex: 1; 
+  margin-left: 60px;
+}
+
+.cap-statement-content ul li {
+  list-style-type: disc;
+}
+
+.cap-statement-content p {
+  font-size: 16px;
+}
+
+.pdf-preview-container {
+  flex: 1;
+}
+
+.pdf-preview {
+  width: 256px;
+  border: 1px solid rgb(244, 244, 244);
+  height: 320px;
+  display: flex;
+  position: relative;
+}
+
+.pdf-top-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #364C7A;
+    z-index: -1;
+}
+
+.pdf-preview .left-side {
+  flex: 1;
+  margin-top: 16px;
+}
+
+.pdf-company-flex {
+  display: flex;
+  gap: 4px;
+  margin-left: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.pdf-preview .pdf-company-name {
+  font-size: 6px;
+  color: #364C7A;
+  font-weight: 500;
+}
+
+.pdf-preview .right-side {
+  flex: 1;
+}
+
+.pdf-preview .image-container {
+  width: 128px;
+  overflow: hidden;
+}
+
+.pdf-preview .pdf-image {
+  width: 110%;
+  height: 100px;
+  filter: grayscale(100%) brightness(75%);
+}
+
+.preview-left-side-header {
+  position: absolute;
+  background-color: #364C7A;
+  border-bottom-right-radius: 80px;
+  border-top-right-radius: 80px;
+  width: 160px;
+  z-index: 10;
+}
+
+.preview-left-side-header .preview-header {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 26px 6px 16px;
+  font-family: 'Roboto Slab', serif !important;
+
+}
+
+.preview-intro {
+  margin-top: 60px;
+  margin-left: 16px;
+}
+
+.preview-intro p {
+  font-size: 6px;
+  line-height: 1.2;
+}
+
+.preview-section {
+  margin-left: 16px;
+  margin-top: 4px;
+}
+
+.preview-section h2{
+  font-size: 8px;
+  color: #364C7A;
+  font-weight: 600;
+}
+
+.preview-section p {
+  font-size: 6px;
+}
+
+.preview-section li {
+  list-style: none;
+}
+
+.placeholder-line {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  margin: 6px 0;
+  width: 85%;
+}
