@@ -37,10 +37,10 @@
             <%= image_tag "icon-bldg.svg", alt: "document icon", class:'form-section-icon' %>
             <h2>Capabilitites</h2>
         </div>
-        <%= form.input :introduction, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
-        <%= form.input :core_competencies, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
-        <%= form.input :differentiators, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %> 
-        <%= form.input :past_performance, as: :text, input_html: { rows: 3, placeholder: "Tell us about your company" } %>
+        <%= form.input :introduction, as: :text, input_html: { rows: 3, placeholder: "e.g. ABC Tech is a veteran-owned IT firm providing cloud and cybersecurity services to federal agencies since 2010." } %>
+        <%= form.input :core_competencies, as: :text, input_html: { rows: 3, placeholder: "e.g. Cloud migration • Cybersecurity compliance • Custom software" } %>
+        <%= form.input :differentiators, as: :text, input_html: { rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %> 
+        <%= form.input :past_performance, as: :text, input_html: { rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
     </div>
     <div class="form-sections">
         <%= form.simple_fields_for :company_contact do |contact| %>
@@ -71,5 +71,7 @@
             </div>
         <% end %>
     </div>
-    <%= form.submit %>
+    <div class="form-action">
+        <%= form.button :submit, "Generate Capability Statement", class: "btn btn-primary" %>
+    </div>
 <% end %>

@@ -1,5 +1,5 @@
 class CapabilityStatementsController < ApplicationController
-    before_action :find_cap_statement, only: %i[ show ]
+    before_action :find_cap_statement, only: %i[ show edit ]
   def new
     @capability_statement = CapabilityStatement.new
     @capability_statement.build_company_contact
@@ -39,6 +39,12 @@ class CapabilityStatementsController < ApplicationController
               locals: { capability_statement: @capability_statement }
       end
     end
+  end
+
+  def edit
+    puts "######"
+    puts @capability_statement.inspect
+    puts "######"
   end
 
   private

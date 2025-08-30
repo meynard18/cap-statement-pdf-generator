@@ -32,13 +32,11 @@
         <% end %>
         <h2>NAICS Code</h2>
         <% @capability_statement&.naics_codes&.each do |code| %>
-            <span class="naics"><%= code %></span>
+            <p><%= code %></p>
         <% end %>
         <h2>Certifications</h2>
         <% @capability_statement.certifications.each do |cert|%>
-            <ul>
-                <li><p><%= cert %></p></li>
-            </ul>
+            <p><%= cert %></p>
         <% end %>
          <h2>Contact</h2>
             <p><%= @capability_statement.company_contact["name"] %></p>
@@ -52,7 +50,7 @@
                 <div class="left-side">
                     <div class="pdf-company-flex">
                         <% if @capability_statement.company_logo.attached? %>
-                        <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@capability_statement.company_logo.download)}", style: "width: 20px;" %>
+                        <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@capability_statement.company_logo.download)}", style: "height: 20px;" %>
                         <% end %>
                         <p class="pdf-company-name"><%= @capability_statement.company_name.upcase %></p>
                     </div>
@@ -114,7 +112,14 @@
                     </div>
                 </div>
         </div>
-        <%= link_to "Download PDF", capability_statement_path(@capability_statement, format: :pdf), target: "_blank" %>
+        <div class="pdf-btn">
+            <% if @capability_statement.paid? %>
+                <%= link_to "Download PDF", capability_statement_path(@capability_statement, format: :pdf), target: "_blank", class: 'btn btn-secondary' %>
+            <% else %>
+                <%= button_to "39.99", checkout_capability_statement_path(@capability_statement),
+                    method: :post, data: { turbo: false } %>
+            <% end %>
+        </div>
     </div>
 </div>
 

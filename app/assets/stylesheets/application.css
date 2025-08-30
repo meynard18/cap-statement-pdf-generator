@@ -35,16 +35,29 @@ p {
   font-size: 16px;
 }
 
+
 .btn {
   border-radius: 8px;
   border: none;
-  padding: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 .btn-primary {
   color: #fff;
   background: linear-gradient(90deg, #3A86FF 0%, #6C63FF 98.56%);
+  padding: 16px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background: linear-gradient(90deg, #3A86FF 0%, #6C63FF 98.56%);
+  padding: 8px;
+  display: block;
+  text-align: center;
 }
 
 h1 {
@@ -166,10 +179,20 @@ header {
   margin-top: 60px;
 }
 
+.form-action {
+  width: 800px;
+  margin-bottom: 40px;
+}
+
+.form-action .btn {
+  width: 100%;
+  font-size: 16px;
+}
+
 .form-sections {
   width: 800px;
   border-radius: 24px;
-  border: 1px solid #D7D7D7;
+  border: 1px solid #bababa;
   background: #FFF;
   box-shadow: 2px 6px 18px 0 rgba(0, 0, 0, 0.10);
   padding: 40px;
@@ -340,16 +363,22 @@ input[type="file"]::file-selector-button {
 .summary-container {
   display: flex;
   width: 100%;
-  gap: 32px;
+  gap: 40px;
+  margin: 36px 0;
 }
 
 .cap-statement-content {
   flex: 1; 
   margin-left: 60px;
+  color: #575757;
 }
 
 .cap-statement-content ul li {
   list-style-type: disc;
+}
+
+.cap-statement-content h2 {
+  font-size: 24px;
 }
 
 .cap-statement-content p {
@@ -385,6 +414,7 @@ input[type="file"]::file-selector-button {
 
 .pdf-company-flex {
   display: flex;
+  align-items: center;
   gap: 4px;
   margin-left: 16px;
   margin-top: 4px;
@@ -394,7 +424,7 @@ input[type="file"]::file-selector-button {
 .pdf-preview .pdf-company-name {
   font-size: 6px;
   color: #364C7A;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pdf-preview .right-side {
@@ -410,6 +440,11 @@ input[type="file"]::file-selector-button {
   width: 110%;
   height: 100px;
   filter: grayscale(100%) brightness(75%);
+}
+
+.pdf-btn {
+  margin-top: 30px;
+  width: 256px;
 }
 
 .preview-left-side-header {
