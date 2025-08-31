@@ -14,30 +14,12 @@ class WebhooksController < ApplicationController
       return head :bad_request
     end
 
-    # debugger
-    puts '###########'
-    puts '###########'
-    puts '###########'
-    puts '###########'
-    puts '###########'
-    puts '###########'
     if event["type"] == "checkout.session.completed"
-      puts "??????"
-      puts "??????"
-      puts "??????"
-      puts "??????"
-      puts "??????"
-      puts "??????"
-      puts "??????"
-      puts "??????"
       session = event["data"]["object"]
       cs_id = session.metadata["capability_statement_id"]
 
       if cs_id.present?
         CapabilityStatement.find(cs_id).update!(paid: true)
-        Rails.logger.info "✅ CapabilityStatement #{cs_id} marked as paid"
-      else
-        Rails.logger.warn "⚠️ No capability_statement_id in metadata"
       end
     end
 

@@ -6,7 +6,7 @@
   <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
 </head>
 <body>
-    <% ai = JSON.parse(@capability_statement.ai_output)%>
+   <% ai = @capability_statement.ai_output.is_a?(String) ? JSON.parse(@capability_statement.ai_output) : @capability_statement.ai_output %>
     <div class="pdf-page">
       <div class="top-border"></div>
       <div class="pdf-container">

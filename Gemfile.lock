@@ -185,6 +185,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.16)
+    rack-attack (6.7.0)
+      rack (>= 1.0, < 4)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -331,6 +333,7 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
+  rack-attack
   rails (~> 7.2.2, >= 7.2.2.2)
   rubocop-rails-omakase
   ruby-openai (~> 8.2)

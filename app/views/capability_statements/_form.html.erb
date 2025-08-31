@@ -1,10 +1,31 @@
-<%= simple_form_for @capability_statement, html: { multipart: true } do |form| %>
+<%# ai = @capability_statement.ai_output.present? ? JSON.parse(@capability_statement.ai_output) : {} %>
+<% ai = if @capability_statement.ai_output.present?
+           @capability_statement.ai_output.is_a?(String) ? JSON.parse(@capability_statement.ai_output) : @capability_statement.ai_output
+         else
+           {}
+         end %>
+
+<%= simple_form_for @capability_statement,
+    url: @capability_statement.new_record? ? capability_statements_path : capability_statement_path(@capability_statement),
+    html: { multipart: true } do |form| %>
+
+    <% if @capability_statement.errors.any? %>
+        <div class="error-summary">
+            <h3><%= pluralize(@capability_statement.errors.count, "error") %> prevented this Capability Statement from saving:</h3>
+            <ul>
+            <% @capability_statement.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div class="form-sections">
         <div class="form-header">
             <%= image_tag "icon-bldg.svg", alt: "document icon", class:'form-section-icon' %>
             <h2>Company Info</h2>
         </div>
-        <%= form.input :company_name, as: :string %>
+        <%= form.input :company_name, as: :string, input_html: {required: true} %>
         <div class="form-flex">
             <%= form.input :cage_code %>
             <%= form.input :uei %>
@@ -37,10 +58,17 @@
             <%= image_tag "icon-bldg.svg", alt: "document icon", class:'form-section-icon' %>
             <h2>Capabilitites</h2>
         </div>
-        <%= form.input :introduction, as: :text, input_html: { rows: 3, placeholder: "e.g. ABC Tech is a veteran-owned IT firm providing cloud and cybersecurity services to federal agencies since 2010." } %>
-        <%= form.input :core_competencies, as: :text, input_html: { rows: 3, placeholder: "e.g. Cloud migration • Cybersecurity compliance • Custom software" } %>
-        <%= form.input :differentiators, as: :text, input_html: { rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %> 
-        <%= form.input :past_performance, as: :text, input_html: { rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
+        <%if  @capability_statement.new_record? %>
+            <%= form.input :introduction, as: :text, input_html: {required: true , rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
+            <%= form.input :core_competencies, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %>
+            <%= form.input :differentiators, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %> 
+            <%= form.input :past_performance, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
+        <% else %>
+            <%= form.input :introduction, as: :text, input_html: {value: (ai["introduction"].is_a?(Array) ? ai["introduction"].join("\n") : ai["introduction"].to_s) , rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
+            <%= form.input :core_competencies, as: :text, input_html: {required: true, value: (ai["core_competencies"].is_a?(Array) ? ai["core_competencies"].join("\n") : ai["core_competencies"].to_s), rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %>
+            <%= form.input :differentiators, as: :text, input_html: {required: true, value: (ai["differentiators"].is_a?(Array) ? ai["differentiators"].join("\n") : ai["differentiators"].to_s), rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %> 
+            <%= form.input :past_performance, as: :text, input_html: {value: (ai["past_performance"].is_a?(Array) ? ai["past_performance"].join("\n") : ai["past_performance"].to_s) , rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
+        <% end %>
     </div>
     <div class="form-sections">
         <%= form.simple_fields_for :company_contact do |contact| %>

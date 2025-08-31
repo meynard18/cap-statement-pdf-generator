@@ -38,6 +38,8 @@ gem "ruby-openai", "~> 8.2"
 gem "simple_form"
 gem "wicked_pdf"
 gem "stripe"
+gem 'rack-attack'
+
 
 
 group :development, :test do

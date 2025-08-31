@@ -1,123 +1,149 @@
-<% ai = JSON.parse(@capability_statement.ai_output)%>
-
-<% ai = JSON.parse(@capability_statement.ai_output)%>
+<% ai = @capability_statement.ai_output.is_a?(String) ? JSON.parse(@capability_statement.ai_output) : @capability_statement.ai_output %>
 <div class="summary-container">
     <div class="cap-statement-content">
-        <h2>Introduction</h2>
-        <p><%= @capability_statement.company_name %></p>
-        <p><%= ai["introduction"] %></p>
-        <h2>Core Competencies</h2>
-        <ul>
-            <% ai["core_competencies"].each do |competency| %>
-                <li><p><%= competency %></p></li>
+        <div class="content-section">
+            <h2>Introduction</h2>
+            <p><%= @capability_statement.company_name %></p>
+            <p><%= ai["introduction"] %></p>
+        </div>
+        <div class="content-section">
+            <h2>Core Competencies</h2>
+            <ul>
+                <% ai["core_competencies"].each do |competency| %>
+                    <li><p><%= competency %></p></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="content-section">
+            <h2>Differentiators</h2>
+            <ul>
+            <% ai["differentiators"].each do |performance| %>
+                <li><p><%= performance %></p></li>
             <% end %>
-        </ul>
-        <h2>Differentiators</h2>
-        <ul>
-        <% ai["differentiators"].each do |performance| %>
-            <li><p><%= performance %></p></li>
-        <% end %>
-        </ul>
-        <h2>Past Experience</h2>
-        <ul>
-        <% ai["past_performance"].each do |performance| %>
-            <li><p><%= performance %></p></li>
-        <% end %>
-        </ul>
-        <h2>Company Snapshot</h2>
-        <p>CAGE CODE: <%= @capability_statement.cage_code %></p>
-        <p>UIE: <%= @capability_statement.uei %></p>
-        <% if @capability_statement.accepts_credit_cards? %>
-            <p>Accepts Credit / Purchase Cards</p>
-        <% end %>
-        <h2>NAICS Code</h2>
-        <% @capability_statement&.naics_codes&.each do |code| %>
-            <p><%= code %></p>
-        <% end %>
-        <h2>Certifications</h2>
-        <% @capability_statement.certifications.each do |cert|%>
-            <p><%= cert %></p>
-        <% end %>
-         <h2>Contact</h2>
+            </ul>
+        </div>
+        <div class="content-section">
+            <h2>Past Experience</h2>
+            <ul>
+            <% ai["past_performance"].each do |performance| %>
+                <li><p><%= performance %></p></li>
+            <% end %>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Company Snapshot</h2>
+            <p>CAGE CODE: <%= @capability_statement.cage_code %></p>
+            <p>UIE: <%= @capability_statement.uei %></p>
+            <% if @capability_statement.accepts_credit_cards? %>
+                <p>Accepts Credit / Purchase Cards</p>
+            <% end %>
+        </div>
+        
+        <div class="content-section">
+            <h2>NAICS Code</h2>
+            <% @capability_statement&.naics_codes&.each do |code| %>
+                <p><%= code %></p>
+            <% end %>
+        </div>
+
+        <div class="content-section">
+            <h2>Certifications</h2>
+            <% @capability_statement.certifications.each do |cert|%>
+                <p><%= cert %></p>
+            <% end %>
+        </div>
+
+        <div class="content-section">
+            <h2>Contact</h2>
             <p><%= @capability_statement.company_contact["name"] %></p>
             <p>Email: <%= @capability_statement.company_contact["email"] %></p>
             <p>Phone: <%= @capability_statement.company_contact["phone"] %></p>
             <p>Location: <%= @capability_statement.company_contact["city"] %>, <%= @capability_statement.company_contact["state"] %></p>
+            <p>Website: <%= @capability_statement.company_contact["website"] %></p>
+        </div>
     </div>
-    <div class="pdf-preview-container">
-        <div class="pdf-preview">
-            <div class="pdf-top-border"></div>
-                <div class="left-side">
-                    <div class="pdf-company-flex">
-                        <% if @capability_statement.company_logo.attached? %>
-                        <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@capability_statement.company_logo.download)}", style: "height: 20px;" %>
-                        <% end %>
-                        <p class="pdf-company-name"><%= @capability_statement.company_name.upcase %></p>
-                    </div>
-                    <div class="preview-left-side-header">
-                        <h1 class="preview-header">Capability Statement</h1>
-                    </div>
-                    <div class="preview-intro">
-                        <%#= ai["introduction"] %>
-                        <% 5.times.each do |competency| %>
-                            <div class="placeholder-line"></div>
-                        <% end %>
-                    </div>
-                    <div class="preview-section">
-                        <h2>Core Competencies</h2>
-                        <ul>
+    <div class="summary-right-side">
+        <div class="pdf-preview-container">
+            <div class="pdf-preview">
+                <div class="pdf-top-border"></div>
+                    <div class="left-side">
+                        <div class="pdf-company-flex">
+                            <% if @capability_statement.company_logo.attached? %>
+                            <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@capability_statement.company_logo.download)}", style: "height: 20px;" %>
+                            <% end %>
+                            <p class="pdf-company-name"><%= @capability_statement.company_name.upcase %></p>
+                        </div>
+                        <div class="preview-left-side-header">
+                            <h1 class="preview-header">Capability Statement</h1>
+                        </div>
+                        <div class="preview-intro">
                             <% 4.times.each do |competency| %>
-                             <li><div class="placeholder-line"></div></li>
+                                <div class="placeholder-line"></div>
                             <% end %>
-                        </ul>
-                    </div>
-                    <div class="preview-section">
-                        <h2>Differentiators</h2>
-                        <ul>
-                            <% 4.times.each do |performance| %>
-                             <li><div class="placeholder-line"></div></li>
-                            <% end %>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="right-side">
-                    <div class="image-container">
-                        <%= image_tag "pdf1.jpg", alt: "Logo", class: "pdf-image" %>
-                    </div>
-                    <div class="preview-section">
-                        <h2>Past Performance</h2>
-                        <ul>
-                            <% ai["past_performance"].each do |performance| %>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Core Competencies</h2>
+                            <ul>
+                                <% 4.times.each do |competency| %>
                                 <li><div class="placeholder-line"></div></li>
-                            <% end %>
-                        </ul>
+                                <% end %>
+                            </ul>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Differentiators</h2>
+                            <ul>
+                                <% 3.times.each do |performance| %>
+                                <li><div class="placeholder-line"></div></li>
+                                <% end %>
+                            </ul>
+                        </div>
+
                     </div>
-                    <div class="preview-section">
-                        <h2>Company Snapshot</h2>
-                        <div class="placeholder-line"></div>
-                        <div class="placeholder-line"></div>
+                    <div class="right-side">
+                        <div class="image-container">
+                            <%= image_tag "pdf1.jpg", alt: "Logo", class: "pdf-image" %>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Past Performance</h2>
+                            <ul>
+                                <% ai["past_performance"].each do |performance| %>
+                                    <li><div class="placeholder-line"></div></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Company Snapshot</h2>
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                        </div>
+                        <div class="preview-section">
+                            <h2>NAICS CODE</h2>
+                            <div class="placeholder-line"></div>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Certifications</h2>
+                            <div class="placeholder-line"></div>
+                        </div>
+                        <div class="preview-section">
+                            <h2>Contact</h2>
+                            <div class="placeholder-line"></div>
+                        </div>
                     </div>
-                    <div class="preview-section">
-                        <h2>NAICS CODE</h2>
-                        <div class="placeholder-line"></div>
-                    </div>
-                    <div class="preview-section">
-                        <h2>Certifications</h2>
-                        <div class="placeholder-line"></div>
-                    </div>
-                    <div class="preview-section">
-                        <h2>Contact</h2>
-                        <div class="placeholder-line"></div>
-                    </div>
-                </div>
+            </div>
         </div>
         <div class="pdf-btn">
             <% if @capability_statement.paid? %>
-                <%= link_to "Download PDF", capability_statement_path(@capability_statement, format: :pdf), target: "_blank", class: 'btn btn-secondary' %>
+                <div class="dual-action">
+                    <%= link_to "Download PDF", capability_statement_path(@capability_statement, format: :pdf), target: "_blank", class: 'btn btn-secondary' %>
+                    <%= link_to "Edit Statement", edit_capability_statement_path(@capability_statement), class: 'btn btn-third'%>
+                </div>
             <% else %>
-                <%= button_to "39.99", checkout_capability_statement_path(@capability_statement),
-                    method: :post, data: { turbo: false } %>
+                <div class="dual-action">
+                    <%= button_to "Unlock PDF – $39.99", checkout_capability_statement_path(@capability_statement),
+                        method: :post, data: { turbo: false }, class: 'btn btn-secondary' %>
+                    <%= link_to "Edit Statement", edit_capability_statement_path(@capability_statement), class: 'btn btn-third'%>
+                </div>
             <% end %>
         </div>
     </div>

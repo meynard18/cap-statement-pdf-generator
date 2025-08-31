@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get "capability_statements/create"
   # get "capability_statements/show"
 
-  resources :capability_statements, only: [ :new, :create, :show, :edit ] do
+  resources :capability_statements, only: [ :new, :create, :show, :edit, :update] do
     member do
       get :download
       post :checkout, to: "checkouts#create"
