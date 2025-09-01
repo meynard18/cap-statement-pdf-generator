@@ -22,11 +22,11 @@
 
   <body>
     <nav>
-      <%= link_to pages_home_path, class: "app-logo" do %>
+      <%= link_to root_path, class: "app-logo" do %>
         <%= image_tag "app-logo.svg", class: "logo-svg" %>
       <% end %>
       <ul class="nav-ul">
-        <li class="nav-li"><%= link_to "Support", pages_support_path, class: 'nav-links' %></li>
+        <li class="nav-li"><%= link_to "Support", support_path, class: 'nav-links' %></li>
       </ul>
     </nav>
       <%= yield %>
