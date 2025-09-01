@@ -19,7 +19,7 @@ h2 {
 
 p {
     font-size: 21px;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .pdf-page {
@@ -59,8 +59,7 @@ p {
   -webkit-align-items: center; /* prefixed align-items */
     align-items: center;       /* modern align-items */
     padding: 20px 0;
-    /* align-items: center; */
-    background-color: red;
+    max-width: 100%;  
 }
 
 .company-name-logo .logo {
@@ -72,9 +71,8 @@ p {
     font-weight: 600;
     color: #364C7A;
     margin-left: 16px;
-    text-wrap: wrap;
+    word-break: break-word;
     white-space: normal;
-    background-color: aqua;
 }
 
 .pdf-container > .right-side {
