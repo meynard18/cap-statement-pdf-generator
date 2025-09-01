@@ -19,6 +19,7 @@ h2 {
 
 p {
     font-size: 21px;
+    font-weight: normal;
 }
 
 .pdf-page {
@@ -70,6 +71,8 @@ p {
     font-weight: 600;
     color: #364C7A;
     margin-left: 16px;
+    text-wrap: wrap;
+    white-space: normal;
 }
 
 .pdf-container > .right-side {
