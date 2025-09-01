@@ -19,7 +19,8 @@ h2 {
 
 p {
     font-size: 21px;
-    font-weight: 400;
+    font-weight: 400 !important;
+    background-color: aliceblue;
 }
 
 .pdf-page {
@@ -71,7 +72,7 @@ p {
     font-weight: 600;
     color: #364C7A;
     margin-left: 16px;
-    word-break: break-word;
+    word-break: break-word !important;
     white-space: normal;
 }
 
@@ -115,6 +116,11 @@ p {
 .section {
     width: 405px;
     margin-top: 48px;
+}
+
+.section p {
+    font-weight: 400 !important;
+    background-color: bisque;
 }
 
 .section h2 {
