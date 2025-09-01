@@ -81,6 +81,14 @@
             <p>Email: <%= @capability_statement.company_contact["email"] %></p>
             <p>Phone: <%= @capability_statement.company_contact["phone"] %></p>
             <p>Location: <%= @capability_statement.company_contact["city"] %>, <%= @capability_statement.company_contact["state"] %></p>
+            <% website = @capability_statement.company_contact["website"] %>
+            <% if website.present? %>
+              <% url = website[%r{^https?://}] ? website : "https://#{website}" %>
+              <p>
+                Website!:
+                <%= link_to url, url, target: "_blank", rel: "noopener" %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>

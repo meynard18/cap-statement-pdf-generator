@@ -140,7 +140,7 @@
                 </div>
             <% else %>
                 <div class="dual-action">
-                    <%= button_to "Unlock PDF – $39.99", checkout_capability_statement_path(@capability_statement),
+                    <%= button_to "Unlock PDF – $34.99", checkout_capability_statement_path(@capability_statement),
                         method: :post, data: { turbo: false }, class: 'btn btn-secondary' %>
                     <%= link_to "Edit Statement", edit_capability_statement_path(@capability_statement), class: 'btn btn-third'%>
                 </div>

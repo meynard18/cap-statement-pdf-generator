@@ -59,8 +59,8 @@
             <h2>Capabilitites</h2>
         </div>
         <%if  @capability_statement.new_record? %>
-            <%= form.input :introduction, as: :text, input_html: {required: true , rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
-            <%= form.input :core_competencies, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %>
+            <%= form.input :introduction, as: :text, input_html: {required: true , rows: 3, placeholder: "e.g. Veteran-owned IT firm helping federal clients modernize systems." } %>
+            <%= form.input :core_competencies, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Cloud migration • Cybersecurity compliance • Custom software" } %>
             <%= form.input :differentiators, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Veteran-owned small business • Section 508 compliance • Agile delivery" } %> 
             <%= form.input :past_performance, as: :text, input_html: {required: true, rows: 3, placeholder: "e.g. Delivered IT modernization for Dept. of Veterans Affairs, improving efficiency by 30%" } %>
         <% else %>
@@ -100,6 +100,22 @@
         <% end %>
     </div>
     <div class="form-action">
-        <%= form.button :submit, "Generate Capability Statement", class: "btn btn-primary" %>
+        <% count = current_generation_count %>
+        <% ip_key = "ip:#{request.remote_ip}:generations" %>
+        <% if @capability_statement.new_record? %>
+            <% if count >= 3 %>
+                <%= form.button :submit, "Free limit reached — try again tomorrow", class: "btn btn-primary" %>
+            <% else %>
+                <%= form.button :submit, "Generate Capability Statement", class: "btn btn-primary" %>
+            <% end %>
+            <% if count == 2 %>
+                <p class="last-attempt-hint">
+                ⚠️ This is your <strong>last free attempt</strong>. After this, payment is required.
+                </p>
+            <% end %>
+        <% else %>
+            <%= form.button :submit, "Update Capability Statement", class: "btn btn-primary" %>
+        <% end %>
+
     </div>
 <% end %>

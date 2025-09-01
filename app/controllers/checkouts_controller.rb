@@ -1,14 +1,14 @@
 class CheckoutsController < ApplicationController
   def create
     cs = CapabilityStatement.find(params[:id])
-    # debugger
+
     session = Stripe::Checkout::Session.create(
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [{
         price_data: {
           currency: "usd",
-          unit_amount: 3900, # $39.00
+          unit_amount: 3499,
           product_data: { name: "Capability Statement PDF" }
         },
         quantity: 1

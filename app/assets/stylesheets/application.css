@@ -86,7 +86,8 @@ h1 {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 30px 50px;
+  align-items: center;
+  padding: 20px 50px;
 }
 
 .nav-ul {
@@ -96,8 +97,24 @@ nav {
 
 .nav-li {
   list-style: none;
+}
 
+.nav-li:hover {
+  text-decoration: underline;
+}
 
+.nav-links {
+  color: #575757;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.app-logo {
+  display: flex;
+}
+
+.logo-svg {
+  width: 200px;
 }
 
 header {
@@ -154,12 +171,14 @@ header {
 
 .cta-support-copy {
   display: block;
-  margin-top: 32px;
+  margin-top: 16px;
+  margin-left: 8px;
   font-size: 12px;
   color: #575757;
 }
 .cap-statement-container {
   background: linear-gradient(346deg, #F9FAFB -2.8%, #F3F4F6 66.2%, #FFF5F0 135.2%);
+  display: flex;
 }
 
 .cap-statement-sub-container {
@@ -318,6 +337,12 @@ header {
   color: #575757;
   font-weight: 500;
   font-size: 32px;
+}
+
+.last-attempt-hint {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 8px;
 }
 
 input[type="file"]::file-selector-button {
@@ -552,4 +577,33 @@ input[type="file"]::file-selector-button {
   border-radius: 2px;
   margin: 6px 0;
   width: 85%;
+}
+
+
+/* support page */
+.support-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 40px;
+    padding-left: 64px;
+    background: linear-gradient(346deg, #F9FAFB -2.8%, #F3F4F6 66.2%, #FFF5F0 135.2%);
+}
+
+.support-container h1 {
+  margin-bottom: 24px;
+}
+
+.support-container p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.support-email-link {
+  color: #3A86FF;
+  font-weight: 600;
+}
+
+.support-email-link:hover {
+  text-decoration: underline;
 }

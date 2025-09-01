@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get "pages/home"
+  get "pages/support"
+  get "pages/blogs"
   # get "capability_statements/new"
   # get "capability_statements/create"
   # get "capability_statements/show"
