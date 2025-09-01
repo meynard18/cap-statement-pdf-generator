@@ -27,6 +27,6 @@ WickedPdf.configure do |config|
   # 'xvfb-run' command, in order to simulate an X server.
   #
   # config.use_xvfb = true
-  config.exe_path = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
+  config.exe_path = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe" if Rails.env.development?
   config.enable_local_file_access = true
 end

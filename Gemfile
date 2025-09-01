@@ -39,8 +39,7 @@ gem "simple_form"
 gem "wicked_pdf"
 gem "stripe"
 gem 'rack-attack'
-
-
+gem "wkhtmltopdf-binary"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
