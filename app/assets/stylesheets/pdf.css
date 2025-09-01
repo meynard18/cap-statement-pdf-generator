@@ -60,6 +60,7 @@ p {
     align-items: center;       /* modern align-items */
     padding: 20px 0;
     /* align-items: center; */
+    background-color: red;
 }
 
 .company-name-logo .logo {
@@ -73,6 +74,7 @@ p {
     margin-left: 16px;
     text-wrap: wrap;
     white-space: normal;
+    background-color: aqua;
 }
 
 .pdf-container > .right-side {
