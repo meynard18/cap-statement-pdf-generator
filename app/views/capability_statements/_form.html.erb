@@ -71,6 +71,10 @@
         <% end %>
     </div>
     <div class="form-sections">
+        <div class="form-header">
+            <%= image_tag "icon-contact.svg", alt: "document icon", class:'form-section-icon' %>
+            <h2>Contact Info</h2>
+        </div>
         <%= form.simple_fields_for :company_contact do |contact| %>
             <%= contact.input :name %>
             <div class="form-flex">
